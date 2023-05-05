@@ -1,0 +1,27 @@
+{
+  "name": "characters-feature-favorite-characters",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/characters/feature-favorite-characters/src",
+  "prefix": "characters",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/characters/feature-favorite-characters"],
+      "options": {
+        "jestConfig": "libs/characters/feature-favorite-characters/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/characters/feature-favorite-characters/**/*.ts",
+          "libs/characters/feature-favorite-characters/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["domain:characters", "type:feature", "type:ui"]
+}

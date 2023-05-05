@@ -1,0 +1,27 @@
+{
+  "name": "characters-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/characters/domain/src",
+  "prefix": "characters",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/characters/domain"],
+      "options": {
+        "jestConfig": "libs/characters/domain/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/characters/domain/**/*.ts",
+          "libs/characters/domain/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["domain:characters", "type:domain-logic"]
+}

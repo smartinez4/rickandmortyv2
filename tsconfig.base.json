@@ -14,7 +14,18 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@rick-and-morty-v2/characters/domain": [
+        "libs/characters/domain/src/index.ts"
+      ],
+      "@rick-and-morty-v2/characters/feature-favorite-characters": [
+        "libs/characters/feature-favorite-characters/src/index.ts"
+      ],
+      "@rick-and-morty-v2/characters/feature-list-characters": [
+        "libs/characters/feature-list-characters/src/index.ts"
+      ],
+      "@rick-and-morty-v2/shared": ["libs/shared/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

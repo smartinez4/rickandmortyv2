@@ -1,0 +1,16 @@
+<p-dialog header="Favorite Characters"
+          [(visible)]="displayModal"
+          [modal]="true"
+          [style]="{ width: '50vw' }"
+          [draggable]="false"
+          [resizable]="false"
+          (onHide)="toggleModalDialog(false)"
+>
+  <div *ngFor="let character of favoriteList">
+    <p-card [header]="character.name">
+      <img [src]="character.image" [alt]="character.name" width="100" class="shadow-4"/>
+    </p-card>
+  </div>
+
+  <div *ngIf="!favoriteList.length">No favorite characters selected!</div>
+</p-dialog>

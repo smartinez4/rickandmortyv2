@@ -1,0 +1,43 @@
+<div *ngIf="characters$ | async as characters">
+<p-table
+  #charactersTable
+  [value]="characters"
+  dataKey="id"
+  [paginator]="true"
+  [rows]="5"
+  [totalRecords]="characters.length"
+  responsiveLayout="scroll"
+  [globalFilterFields]="['name']"
+>
+  <ng-template pTemplate="caption">
+    <div class="char-table-caption">
+      <span class="p-input-icon-left ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains', charactersTable)" placeholder="Search keyword" />
+            </span>
+      <button type="button" pButton pRipple icon="pi pi-star" (click)="toggleModal(true)" class="fav-btn">Favorites List</button>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="name"> <p-sortIcon field="name"></p-sortIcon>Name</th>
+      <th>Image</th>
+      <th pSortableColumn="gender"> <p-sortIcon field="gender"></p-sortIcon>Gender</th>
+      <th pSortableColumn="status"> <p-sortIcon field="status"></p-sortIcon>Status</th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-character>
+    <tr>
+      <td>{{character.name}}</td>
+      <td><img [src]="character.image" [alt]="character.name" width="100" class="shadow-4" /></td>
+      <td>{{character.gender}}</td>
+      <td>{{character.status}}</td>
+      <td>
+        <p-button styleClass="p-button-text" icon="pi pi-star" (click)="selectCharacter(character)"></p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+</div>
+<characters-favorite-characters [displayModal]="showFavoritesModal" [favoriteList]="favoriteList" (toggleModal)="toggleModal($event)"></characters-favorite-characters>
